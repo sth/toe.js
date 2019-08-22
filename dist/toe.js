@@ -245,10 +245,14 @@
      * @param  {Object} event
      */
     function touchend(event) {
+        if (!state) { return; }
+
         var end = touch.Event(event);
         state.end = end;
 
         loopHandler('touchend', event, state, end);
+
+        state = null;
     }
 
     touch.on();
